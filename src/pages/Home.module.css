@@ -1,0 +1,9 @@
+.recommendations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.heading {
+  margin: 0 0 1rem 0;
+}

@@ -1,0 +1,27 @@
+.title {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(92, 38, 142);
+}
+
+.navbar {
+  background-color: rgb(179, 218, 235);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  box-shadow: 0px 3px 8px 0px rgba(110, 107, 153, 0.2);
+}
+
+.navbar > div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar svg {
+  min-width: 30px;
+  width: 3rem;
+  height: 3rem;
+}
