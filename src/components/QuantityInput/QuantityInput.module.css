@@ -1,0 +1,15 @@
+.button {
+  padding: 0.5rem 1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.inputDiv {
+  height: 100%;
+}
+
+.inputDiv > * {
+  height: 100%;
+}

@@ -5,7 +5,7 @@
 }
 
 .img {
-  height: clamp(10rem, 10vw, 50vh);
+  height: clamp(10rem, 10vw, 300px);
   object-fit: contain;
 }
 
@@ -27,19 +27,9 @@
   color: rgb(133, 91, 184);
 }
 
-.button {
-  padding: 0.5rem 1rem;
-}
-
-.button:hover {
-  cursor: pointer;
-}
-
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
-  align-items: stretch;
   text-align: center;
 }
 

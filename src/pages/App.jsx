@@ -4,6 +4,7 @@ import "./App.css";
 import styles from "./App.module.css";
 import { useEffect, useState } from "react";
 import { ProductsContext } from "../contexts/ProductsContext";
+import { CartContext } from "../contexts/CartContext";
 
 function useFetchProducts() {
   const [products, setProducts] = useState([]);
@@ -38,11 +39,14 @@ function useFetchProducts() {
 }
 
 function App() {
+  const [cart, setCart] = useState([]);
   return (
     <div className={styles.app}>
       <NavBar />
       <ProductsContext.Provider value={useFetchProducts()}>
-        <Outlet />
+        <CartContext.Provider value={{ cart, setCart }}>
+          <Outlet />
+        </CartContext.Provider>
       </ProductsContext.Provider>
     </div>
   );

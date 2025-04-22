@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vitest } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import Recommendation from "./Recommendation";
-import { INITIAL_BUTTON_TEXT } from "./utils";
+import { CartContext } from "../../contexts/CartContext";
 
 const data = {
   id: 0,
@@ -17,12 +17,16 @@ describe("Recommendation", () => {
   it("renders for quantity 0", () => {
     render(
       <MemoryRouter>
-        <Recommendation data={data} quantity={0} onChangeQuantity={null} />
+        <CartContext.Provider value={{ cart: [], setCart: vitest.fn() }}>
+          <Recommendation data={data} />
+        </CartContext.Provider>
       </MemoryRouter>,
     );
-    expect(screen.getByRole("link")).toHaveAttribute("href", `/${data.id}`);
+    const links = screen.getAllByRole("link");
+    expect(links[0]).toHaveAttribute("href", `/${data.id}`);
+    expect(links[1]).toHaveAttribute("href", `/${data.id}`);
     expect(screen.getByText(data.title)).not.toBe(null);
-    expect(screen.getByText("5.00")).not.toBe(null);
-    expect(screen.getByText(INITIAL_BUTTON_TEXT)).not.toBe(null);
+    expect(screen.getByText(/5.00/)).not.toBe(null);
+    expect(screen.getByRole("button")).not.toBe(null);
   });
 });
