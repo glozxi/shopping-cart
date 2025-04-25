@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import Recommendation from "../components/Recommendation/Recommendation";
-import styles from "./Home.module.css";
+import styles from "./Shop.module.css";
 import { ProductsContext } from "../contexts/ProductsContext";
+import Product from "../components/Product/Product";
 
 function Shop() {
   const { products, error, loading } = useContext(ProductsContext);
@@ -12,12 +12,12 @@ function Shop() {
     return <p>A network error has occurred</p>;
   }
   return (
-    <main>
+    <main className={styles.main}>
       <h1 className={styles.heading}>Shop</h1>
-      <ul className={styles.recommendations}>
+      <ul className={styles.products}>
         {products.map((rec) => (
           <li key={rec.id}>
-            <Recommendation data={rec} quantity={0} onChangeQuantity={null} />
+            <Product data={rec} quantity={0} onChangeQuantity={null} />
           </li>
         ))}
       </ul>

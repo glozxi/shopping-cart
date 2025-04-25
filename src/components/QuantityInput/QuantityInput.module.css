@@ -7,9 +7,18 @@
 }
 
 .inputDiv {
+  display: flex;
   height: 100%;
+  width: 100%;
 }
 
 .inputDiv > * {
   height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width: 400px) {
+  .button {
+    padding: 0rem;
+  }
 }

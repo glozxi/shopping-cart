@@ -36,3 +36,12 @@
 .price {
   font-size: 2.5rem;
 }
+
+@media only screen and (max-width: 400px) {
+  .title h3 {
+    font-size: 1.2rem;
+  }
+  .price {
+    font-size: 1.5rem;
+  }
+}

@@ -13,7 +13,7 @@ export default function Home() {
   }
   const recommendations = products.slice(0, 6);
   return (
-    <main>
+    <main className={styles.main}>
       <h1 className={styles.heading}>Recommendations</h1>
       <ul className={styles.recommendations}>
         {recommendations.map((rec) => (

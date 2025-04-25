@@ -79,8 +79,6 @@ body {
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1.2rem;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 ul {
@@ -91,4 +89,8 @@ ul {
 a {
   color: inherit;
   text-decoration: none; /* no underline */
+}
+
+body {
+  min-height: 100dvh;
 }

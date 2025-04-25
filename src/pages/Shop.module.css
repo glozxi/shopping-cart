@@ -1,6 +1,6 @@
-.recommendations {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.products {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -16,7 +16,7 @@
   .heading {
     font-size: 1.5rem;
   }
-  .recommendations {
+  .products {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 0.5rem;
   }

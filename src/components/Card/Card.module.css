@@ -24,3 +24,15 @@
 .card:hover::after {
   opacity: 1;
 }
+
+@media only screen and (max-width: 400px) {
+  .card {
+    border-radius: 3px;
+    padding: 1rem;
+  }
+
+  .card::after {
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+}
