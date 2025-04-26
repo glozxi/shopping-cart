@@ -1,0 +1,63 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 2fr 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+  align-items: center;
+}
+
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  grid-area: 1 / 1 / 5 / 2;
+}
+
+.img {
+  height: clamp(10rem, 20vw, 300px);
+  object-fit: contain;
+}
+
+.title {
+  height: 4rem;
+}
+
+.title h3 {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.title a:hover {
+  color: rgb(133, 91, 184);
+}
+
+.description p {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: gray;
+}
+
+.price {
+  font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .title h3 {
+    font-size: 1.2rem;
+  }
+  .description p {
+    font-size: 1rem;
+  }
+
+  .card {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+}

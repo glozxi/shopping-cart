@@ -1,13 +1,13 @@
 import Card from "../Card/Card";
 import { Link } from "react-router-dom";
 import { toFloat } from "../../utils";
-import styles from "./Product.module.css";
+import styles from "./FullProduct.module.css";
 import QuantityInput from "../QuantityInput/QuantityInput";
 import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
 import { onChangeQuantity } from "../../utils";
 
-export default function Product({ data }) {
+export default function FullProduct({ data }) {
   const { cart, setCart } = useContext(CartContext);
   const quantity = cart.find((item) => item.id === data.id)?.quantity ?? 0;
 

@@ -7,42 +7,12 @@ import darkStyles from "./DarkTheme.module.css";
 import { useEffect, useState } from "react";
 import { ProductsContext } from "../contexts/ProductsContext";
 import { CartContext } from "../contexts/CartContext";
-
-function useFetchProducts() {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-
-    fetch(`https://fakestoreapi.com/products`, { signal })
-      .then((response) => {
-        if (response.status >= 400) {
-          throw new Error("server error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        if (!controller.signal.aborted) {
-          setError(error);
-        }
-      })
-      .finally(() => setLoading(false));
-
-    return () => controller.abort();
-  }, []);
-
-  return { products, error, loading };
-}
+import useFetchProducts from "./useFetchProducts";
 
 function App() {
   const [cart, setCart] = useState([]);
   const [isDark, setIsDark] = useState(false);
+  const productData = useFetchProducts();
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -61,7 +31,7 @@ function App() {
         className={`${styles.app} ${isDark ? darkStyles.body : lightStyles.body}`}
       >
         <NavBar />
-        <ProductsContext.Provider value={useFetchProducts()}>
+        <ProductsContext.Provider value={productData}>
           <CartContext.Provider value={{ cart, setCart }}>
             <Outlet />
           </CartContext.Provider>

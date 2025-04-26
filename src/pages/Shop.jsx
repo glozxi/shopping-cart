@@ -15,9 +15,9 @@ function Shop() {
     <main className={styles.main}>
       <h1 className={styles.heading}>Shop</h1>
       <ul className={styles.products}>
-        {products.map((rec) => (
-          <li key={rec.id}>
-            <Product data={rec} quantity={0} onChangeQuantity={null} />
+        {products.map((p) => (
+          <li key={p.id}>
+            <Product data={p} />
           </li>
         ))}
       </ul>
