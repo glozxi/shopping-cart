@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
 export default function NavBar() {
+  const { cart } = useContext(CartContext);
+  const quantity = cart.reduce((acc, currItem) => acc + currItem.quantity, 0);
+
   return (
     <header>
       <nav>
@@ -12,8 +17,12 @@ export default function NavBar() {
             </Link>
             <Link to="shop">Shop</Link>
           </div>
-          <div>
+          <div className={styles.cart}>
             <Link to="cart">
+              {quantity === 0 ? null : (
+                <div className={styles.cartNum}>{quantity}</div>
+              )}
+
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"

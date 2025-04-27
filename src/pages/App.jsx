@@ -30,9 +30,9 @@ function App() {
       <div
         className={`${styles.app} ${isDark ? darkStyles.body : lightStyles.body}`}
       >
-        <NavBar />
         <ProductsContext.Provider value={productData}>
           <CartContext.Provider value={{ cart, setCart }}>
+            <NavBar />
             <Outlet />
           </CartContext.Provider>
         </ProductsContext.Provider>
