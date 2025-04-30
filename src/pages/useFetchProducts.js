@@ -19,16 +19,21 @@ export default function useFetchProducts() {
       })
       .then((data) => {
         setProducts(data);
-        setLoading(false);
       })
       .catch((error) => {
         if (!controller.signal.aborted) {
           setError(error);
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) {
           setLoading(false);
         }
       });
 
-    return () => controller.abort();
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return { products, error, loading };
